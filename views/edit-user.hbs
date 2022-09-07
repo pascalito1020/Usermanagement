@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb" class="mt-2">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/main">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+    </ol>
+</nav>
+
+{{#if alert}}
+    <div class="alert alert-dark mt-4" role="alert">
+        {{alert}}
+    </div>
+{{/if}}
+
+{{#each rows}}
+
+    <h1>Edit User {{this.id}}</h1>
+
+<form method="post" class="mt-4" action="/edituser/{{this.id}}" >
+
+    {{>user-form}}
+
+</form>
+{{/each}}

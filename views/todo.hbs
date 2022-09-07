@@ -1,0 +1,93 @@
+<button id="btn">GET</button>
+
+<ul id="notes">
+
+</ul>
+
+<h1>POST</h1>
+<form id="postForm">
+    <input type="text" name="input" id="noteInput">
+    <button>Send</button>
+</form>
+
+<h1>PUT</h1>
+<form id="postForm2">
+    <input type="text" name="id" id="noteInputID2" placeholder="ID">
+    <input type="text" name="input" id="noteInput" placeholder="Change Name">
+    <button>Update</button>
+</form>
+
+<h1>DELETE</h1>
+<form id="postForm3">
+    <h6>Choose ID to delete</h6>
+    <input type="text" name="id" id="noteInputID3" placeholder="ID">
+    <button>Delete</button>
+</form>
+
+<script>
+
+    let ul = document.querySelector('#notes')
+    let btn = document.querySelector('#btn')
+
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        fetch('http://localhost:3000/getnotes', {
+            method: 'GET'
+        }).then (raw => raw.json())
+                .then(data => {
+                    ul.innerHTML = data.map(i => `
+                <li>
+                    Note with id = "${i.id}" is: ${i.input}
+                </li>`).join('')
+                })
+    })
+
+    let form = document.querySelector('#postForm')
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        const object = {}
+        new FormData(form).forEach((value, key) => object[key] = value)
+
+        fetch('http://localhost:3000/postnotes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(object)
+        }).then(raw => raw.json)
+                .then(data => console.log(data))
+                .then(err => console.log(err))
+
+    })
+
+    let form2 = document.querySelector("#postForm2")
+
+    form2.addEventListener('submit', e => {
+        e.preventDefault()
+        const o = {}
+        new FormData(form2).forEach((value, key) => o [key] = value)
+        fetch(`http://localhost:3000/putnotes/${document.getElementById('noteInputID2').value}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(o)
+        }).then(raw => raw.json)
+                .then(data => console.log(data))
+                .then(err => console.log(err))
+    })
+
+    let form3 = document.querySelector("#postForm3")
+
+    form3.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(`http://localhost:3000/deletenotes/${document.getElementById('noteInputID3').value}`, {
+            method: 'DELETE'
+
+        }).then(raw => raw.json)
+                .then(data => console.log(data))
+    })
+
+
+</script>
