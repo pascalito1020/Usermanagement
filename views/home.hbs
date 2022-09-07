@@ -1,8 +1,25 @@
-<div id="test">
-    <p>Test Content</p>
-</div>
+
+<script>
+    $(document).ready(function(){
+        $("#ajaxButton").click(function(){
+            $.ajax({
+                type:"GET",
+                url:"http://localhost:3000/getnotes",
+                contentType:"application/json; charset=utf-8",
+                dataType:"json",
+                success:function (result){
+                    $('#result').append(result);
+                }
+            })
+        });
+    });
+</script>
 
 <button id="ajaxButton">Info</button>
+
+<div id="result">
+
+</div>
 
 <div class="row">
     <div class="col-6">
@@ -41,3 +58,6 @@
     {{/each}}
     </tbody>
 </table>
+
+
+
