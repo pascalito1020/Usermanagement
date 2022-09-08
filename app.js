@@ -36,10 +36,8 @@ pool.getConnection((err, connection) => {
     }
 })
 
-app.use('/', routes)  // Routes for USM App
+app.use('/', routes)
 
 app.listen(port, () =>
     console.log("Listening on port " + port)
-
-
 )
