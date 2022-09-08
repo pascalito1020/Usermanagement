@@ -51,7 +51,7 @@
                 .then(data => {
                     ul.innerHTML = data.map(i => `
                 <li>
-                    Note with id = "${i.id}" is: ${i.input}
+                    Task number "${i.id}" is: ${i.input}
                 </li>`).join('')
                 })
     })

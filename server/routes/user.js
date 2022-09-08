@@ -2,7 +2,13 @@ const express = require('express')
 const router = express.Router();
 const userController = require('../controllers/userController')
 
-const USERS = [{id: 0, input: "Manuel"}, {id: 1, input: "Pascal"}]
+const USERS = [{id: 0, input: "Wash dishes"}, {id: 1, input: "Talk a walk"}, {id: 2, input: "Prepare meal for tomorrow"}]
+
+router.get('/login', (req, res) => {
+
+    res.render('login')
+
+})
 
 router.get('/notes', (req, res) =>{
     res.render('todo')

@@ -1,7 +1,14 @@
-body {
-    background-color: cadetblue;
 
+body {
+
+    font-family: 'Inconsolata', monospace;
+    background-image: url("aqua-d9b59c89.png");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 #ajaxButton {
     margin-top: 20px;
     margin-right: 15px;
