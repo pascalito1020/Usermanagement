@@ -4,6 +4,12 @@ const userController = require('../controllers/userController')
 
 const USERS = [{id: 0, input: "Wash dishes"}, {id: 1, input: "Talk a walk"}, {id: 2, input: "Prepare meal for tomorrow"}]
 
+router.get('/weather', (req, res) => {
+
+    res.render('weather')
+
+})
+
 router.get('/login', (req, res) => {
 
     res.render('login')

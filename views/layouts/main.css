@@ -99,4 +99,24 @@ margin-top: 10px;
     border: thin solid black;
     margin-top: 10px;
 }
+.weather {
+    margin: 20px;
+}
 
+.buttonWeather {
+
+    margin: 20px;
+
+}
+
+.display {
+
+    margin: 20px;
+
+}
+
+.formInput{
+
+    margin: 50px;
+
+}

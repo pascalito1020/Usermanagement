@@ -1,0 +1,68 @@
+<section class="weather">
+    <h2>This Week's Weather</h2>
+    <div class="weatherWidget"></div>
+    <script>
+        window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+        window.weatherWidgetConfig.push({
+            selector:".weatherWidget",
+            apiKey:"4ZVN3XMA8E2X2HT3TBTTSM8VN",
+            location:"Vienna, Austria",
+            unitGroup:"metric",
+            forecastDays:7,
+            title:"Vienna, Austria",
+            showTitle: true,
+            showConditions: true
+        });
+
+        /*
+          You can test the API with the link below.
+         */
+
+        (function() {
+            const d = document, s = d.createElement('script');
+            s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+</section>
+
+<div class="input">
+    <input type="submit" value="OpenWeatherMap" class="buttonWeather">
+</div>
+
+<div class="display">
+    <h1 class="name"></h1>
+    <p class="desc"></p>
+    <p class="temp"></p>
+</div>
+
+<script>
+
+    const name = document.querySelector('.name')
+    const desc = document.querySelector('.desc')
+    const temp = document.querySelector('.temp')
+
+    const button = document.querySelector('.buttonWeather')
+
+    button.addEventListener('click', function () {
+
+        fetch('https://api.openweathermap.org/data/2.5/weather?lat=48.20&lon=16.37&appid=a9274752496b0dd7afbc51f175a8fa62')
+                .then(response => response.json())
+                .then(data =>{
+                    const nameValue = data['name']
+                    const descValue = data['main']['temp']
+                    const tempValue = data['weather'][0]['description']
+
+                    name.innerHTML = nameValue
+                    desc.innerHTML = descValue
+                    temp.innerHTML = tempValue
+                })
+                .catch(err => alert("Error!"))
+
+    })
+
+
+
+
+</script>
