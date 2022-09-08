@@ -2,3 +2,95 @@ body {
     background-color: #52857c;
 }
 
+
+#ajaxButton {
+    margin-top: 20px;
+    margin-right: 15px;
+    border-radius: 5px;
+    background-color: #a3aaa9;
+    color: black;
+    border: thin solid black;
+
+}
+
+#addUserBtn{
+    border: thin solid black;
+}
+
+#userTitle{
+    padding-top: 10px;
+}
+
+#delete {
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+}
+
+#edit {
+    background-color: #00ff4c;
+}
+
+.table.table-bordered {
+    margin-top: 10px;
+}
+
+#tablehead {
+    background-color: darkgray;
+}
+
+#table {
+    background-color: beige;
+}
+
+.toDoList{
+    padding-top: 30px;
+
+}
+
+.getButton{
+    padding-top: 30px;
+
+}
+
+#toDoDelete{
+    background-color: red;
+    border-radius: 5px;
+    border: thin solid black;
+
+
+}
+#toDoSend{
+    background-color: lawngreen;
+    border-radius: 5px;
+    border: thin solid black;
+}
+#toDoUpdate{
+    background-color: #ffdf28;
+    border-radius: 5px;
+    border: thin solid black;
+    margin-top: 10px;
+}
+
+.idField{
+    margin-bottom: 5px;
+}
+.deleteBtn{
+margin-top: 10px;
+}
+
+.sendBtn{
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+.updateBtn{
+    margin-bottom: 25px;
+}
+
+#btn{
+    border-radius: 5px;
+    border: thin solid black;
+    margin-top: 10px;
+}
+

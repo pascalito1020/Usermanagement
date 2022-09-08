@@ -1,29 +1,43 @@
-<button id="btn">GET</button>
+<div class="getButton">
+    <button id="btn">GET</button>
+</div>
 
 <ul id="notes">
 
 </ul>
 
-<h1>POST</h1>
+<div class="toDoList">
+<h3>POST</h3>
 <form id="postForm">
     <input type="text" name="input" id="noteInput">
-    <button>Send</button>
+    <div class="sendBtn">
+    <button id="toDoSend">Send</button>
+    </div>
 </form>
 
-<h1>PUT</h1>
+<h3>PUT</h3>
 <form id="postForm2">
+    <div class="idField">
     <input type="text" name="id" id="noteInputID2" placeholder="ID">
+    </div>
+    <div class="changeName">
     <input type="text" name="input" id="noteInput" placeholder="Change Name">
-    <button>Update</button>
+    </div>
+    <div class="updateBtn">
+    <button id="toDoUpdate">Update</button>
+    </div>
+
 </form>
 
-<h1>DELETE</h1>
+<h3>DELETE</h3>
 <form id="postForm3">
     <h6>Choose ID to delete</h6>
     <input type="text" name="id" id="noteInputID3" placeholder="ID">
-    <button>Delete</button>
+    <div class="deleteBtn">
+    <button id="toDoDelete">Delete</button>
+    </div>
 </form>
-
+</div>
 <script>
 
     let ul = document.querySelector('#notes')

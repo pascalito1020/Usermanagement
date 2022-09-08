@@ -1,7 +1,6 @@
 {
   "name": "usermanagement",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,5 +17,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pascalito1020/Usermanagement.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pascalito1020/Usermanagement/issues"
+  },
+  "homepage": "https://github.com/pascalito1020/Usermanagement#readme",
+  "description": ""
 }

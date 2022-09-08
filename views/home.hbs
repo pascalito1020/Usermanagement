@@ -15,24 +15,25 @@
     });
 </script>
 
-<button id="ajaxButton">Info</button>
+
 
 <div id="result">
-
 </div>
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-6" id="userTitle">
         <h1>Users</h1>
+
     </div>
     <div class="col-6 justify-content-end d-flex" >
-        <a href="/adduser" type="button" class="btn btn-primary align-self-center mt-2">add user</a>
+        <button id="ajaxButton" class="btn btn-primary align-self-center mt-2">Info</button>
+        <a href="/adduser" type="button" class="btn btn-primary align-self-center mt-2" id="addUserBtn">add user</a>
     </div>
 </div>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="tablehead" >
     <thead class="thead-dark">
-    <tr>
+    <tr >
         <th scope="col">#</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
@@ -42,7 +43,7 @@
 
     </tr>
     </thead>
-    <tbody>
+    <tbody id="table">
     {{#each rows}}
     <tr>
         <th scope="row">{{this.id}}</th>
@@ -51,8 +52,8 @@
         <td>{{this.email}}</td>
         <td>{{this.phone}}</td>
         <td class="text-end">
-            <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i> Edit</a>
-            <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+            <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small" id="edit"><i class="bi bi-pencil"></i> Edit</a>
+            <a href="/{{this.id}}" type="button" class="btn btn-light btn-small" id="delete"><i class="bi bi-person-x"></i> Delete</a>
         </td>
     </tr>
     {{/each}}
