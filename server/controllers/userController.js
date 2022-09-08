@@ -58,7 +58,6 @@ exports.find = (req, res) => {
 }
 
 //View Add user Page
-
 exports.form = (req, res) => {
 
      res.render('add-user')
@@ -89,6 +88,7 @@ exports.create = (req, res) => {
 
 
 }
+
 
 // Render Edit Page with Params from ID
 exports.edit = (req, res) => {
@@ -147,6 +147,8 @@ exports.update = (req, res) => {
 
 }
 
+
+
 // Remove user
 exports.remove = (req, res) => {
 
@@ -169,6 +171,7 @@ exports.remove = (req, res) => {
 
 }
 
+
 //  Login User
 exports.login = (req, res) => {
     const username = req.body.username
@@ -190,7 +193,7 @@ exports.login = (req, res) => {
                         req.session.username = username;
                         req.session.save();
                         // Redirect to home page
-                        res.redirect('/loggedin')
+                        res.redirect('/main')
                     } else {
                         res.send('Userdata not in database, try again')
                     }

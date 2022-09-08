@@ -19,7 +19,7 @@
 <h3>PUT</h3>
 <form id="postForm2">
     <div class="idField">
-    <input type="text" name="id" id="noteInputID2" placeholder="ID">
+    <input type="text" name="id" id="noteInputID2" placeholder="Task number">
     </div>
     <div class="changeName">
     <input type="text" name="input" id="noteInput" placeholder="Change Name">
@@ -32,8 +32,8 @@
 
 <h3>DELETE</h3>
 <form id="postForm3">
-    <h6>Choose ID to delete</h6>
-    <input type="text" name="id" id="noteInputID3" placeholder="ID">
+    <h6>Choose Task number to delete</h6>
+    <input type="text" name="id" id="noteInputID3" placeholder="Task number">
     <div class="deleteBtn">
     <button id="toDoDelete">Delete</button>
     </div>
@@ -73,7 +73,6 @@
         }).then(raw => raw.json)
                 .then(data => console.log(data))
                 .then(err => console.log(err))
-
     })
 
     let form2 = document.querySelector("#postForm2")

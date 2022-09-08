@@ -4,10 +4,12 @@ const userController = require('../controllers/userController')
 
 const USERS = [{id: 0, input: "Wash dishes"}, {id: 1, input: "Talk a walk"}, {id: 2, input: "Prepare meal for tomorrow"}]
 
-router.get('/loggedin', (req, res) =>{
+// ROUTES FOR Weather, Tasks, Login
 
-    console.log(req.session)
-    res.render('loggedin', {username: req.session.username})
+router.get('/getuserid', (req, res) =>{
+    res.json({
+        username: req.session.username
+    })
 
 })
 
@@ -43,7 +45,7 @@ router.post('/postnotes', (req, res) =>{
         }else{
         for(let i = 0; i < (USERS.length+1); i++) {
             if (USERS[i] === undefined) {
-                USERS.push(Object.assign({id: i}), newUser)
+                USERS.push(Object.assign({id: i, input: req.body.input}))
                 break;
             }
         }
@@ -79,7 +81,7 @@ router.put('/putnotes/:id', (req, res) =>{
     const updUser = req.body
     const found = USERS.find(itm => itm.id === parseInt(req.params.id) ? itm : '')
     if(found !== undefined){
-        if(updUser.input){
+        if(updUser.input) {
             found.input = updUser.input
         }
         res.json({
@@ -88,7 +90,7 @@ router.put('/putnotes/:id', (req, res) =>{
     }
 })
 
-// ROUTES FOR DATABASE //
+// ROUTES FOR DATABASE MY SQL (Only Usermanagement
 
 router.get('/main', userController.view) // Anzeige der Userdaten
 

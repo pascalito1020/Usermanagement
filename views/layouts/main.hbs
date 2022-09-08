@@ -52,6 +52,31 @@
     </div>
 </nav>
 
+<script>
+
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://localhost:3000/getuserid",
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            success: function (response) {
+                if(response.username === undefined) {
+                    response.username = " "
+                }else
+                    $('#tbodyid2').append("<div>\
+										<p>Logged in as: " + response.username + "</p>\
+										</div>");
+            }
+        })
+    });
+
+</script>
+
+<div id="tbodyid2">
+
+</div>
+
 
 <div class="container">
 
@@ -60,6 +85,5 @@
 </div>
 
 </body>
-
 
 </html>
