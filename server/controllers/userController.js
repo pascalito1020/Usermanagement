@@ -46,6 +46,7 @@ exports.find = (req, res) => {
                 connection.release();
                 if(!err){
                     res.render('home', {rows})
+
                 }else{
                     console.log("Fehler ;(")
                 }
@@ -56,7 +57,7 @@ exports.find = (req, res) => {
 
 }
 
-// view Add user Page
+//View Add user Page
 
 exports.form = (req, res) => {
 
@@ -67,7 +68,7 @@ exports.form = (req, res) => {
 // Create User
 exports.create = (req, res) => {
 
-     const {first_name, last_name, email, phone, comments} = req.body
+    const {first_name, last_name, email, phone, comments} = req.body
 
     pool.getConnection((err, connection) => {
         if(err){
@@ -168,3 +169,38 @@ exports.remove = (req, res) => {
 
 }
 
+//  Login User
+exports.login = (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    if(username && password) {
+        pool.getConnection((err, connection) => {
+            if(err){
+                throw err
+            }else{
+                console.log("Connected to DB!");
+                connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], (err, results, rows) =>{
+                    if (err) {
+                        throw err;
+                    }
+                    // If the account exists
+                    if (results.length > 0) {
+                        // Authenticate the user
+                        req.session.loggedin = true;
+                        req.session.username = username;
+                        req.session.save();
+                        // Redirect to home page
+                        res.redirect('/loggedin')
+                    } else {
+                        res.send('Userdata not in database, try again')
+                    }
+                    res.end();
+                })
+            }
+        })
+
+    }else {
+        res.send('Missing username or password')
+        res.end();
+    }
+}

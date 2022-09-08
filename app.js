@@ -5,12 +5,16 @@ const mysql = require("mysql")
 const routes = require('./server/routes/user');
 const path = require("path");
 const app = express();
+const cookieParser = require("cookie-parser")
 const port = 3000;
 
 app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'views/layouts')));// Static Files
+const session = require('express-session');
+
+
 
 // Template Engine
 app.engine('hbs', exhps.engine({ extname: '.hbs',
@@ -35,6 +39,13 @@ pool.getConnection((err, connection) => {
         console.log("Connected to DB!");
     }
 })
+
+app.use(cookieParser())
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.use('/', routes)
 

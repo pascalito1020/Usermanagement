@@ -1,15 +1,13 @@
 <div class="formInput">
 
-
-
-<form>
+<form method="post" action="/login">
     <div class="form-group" id="loginForm">
         <label for="exampleInputEmail1">Username</label>
-        <input type="text" style="width: 300px" class="form-control" id="exampleInputEmail1" placeholder="Enter username">
+        <input type="text" name="username" style="width: 300px" class="form-control" id="exampleInputEmail1" placeholder="Enter username">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" style="width: 300px" id="exampleInputPassword1" placeholder="Password">
+        <input type="password" name="password" class="form-control" style="width: 300px" id="exampleInputPassword1" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-primary mt-2">Login</button>
 </form>

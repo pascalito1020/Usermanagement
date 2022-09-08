@@ -4,22 +4,29 @@ const userController = require('../controllers/userController')
 
 const USERS = [{id: 0, input: "Wash dishes"}, {id: 1, input: "Talk a walk"}, {id: 2, input: "Prepare meal for tomorrow"}]
 
-router.get('/weather', (req, res) => {
+router.get('/loggedin', (req, res) =>{
 
-    res.render('weather')
+    console.log(req.session)
+    res.render('loggedin', {username: req.session.username})
 
 })
 
-router.get('/login', (req, res) => {
+router.get('/weather', (req, res) => {
+    res.render('weather')
+})
+
+router.get('/loginpage', (req, res) => {
 
     res.render('login')
 
 })
 
+router.post('/login', userController.login)
+
 router.get('/notes', (req, res) =>{
-    res.render('todo')
-}
-)
+    res.render("todo")
+})
+
 router.get('/getnotes', (req, res) =>{
     res.json(USERS)
 })
